@@ -12,6 +12,13 @@ const app = express();
 app.set("trust proxy", 1);
 
 app.use(
+  cors({
+    credentials: true,
+    origin: '*', 
+  })
+);
+
+app.use(
   session({
     secret: "any string",
     resave: false,
@@ -24,12 +31,6 @@ app.use(
   })
 );
 
-app.use(
-  cors({
-    credentials: true,
-    origin: 'https://a5--fastidious-toffee-e721ad.netlify.app', 
-  })
-);
 
 app.use(express.json());
 
@@ -42,9 +43,6 @@ TuitsController(app)
 HelloController(app)
 UserController(app)
 AuthController(app);
-
-// Handle CORS preflight requests
-app.options("*", cors());
 
 app.listen(process.env.PORT || 4000);
 
