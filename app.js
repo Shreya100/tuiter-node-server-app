@@ -44,6 +44,9 @@ HelloController(app)
 UserController(app)
 AuthController(app);
 
+// Handle CORS preflight requests
+app.options("*", cors());
+
 app.listen(process.env.PORT || 4000);
 
 
