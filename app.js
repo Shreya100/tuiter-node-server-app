@@ -9,12 +9,18 @@ const CONNECTION_STRING = "mongodb+srv://shreya21reddy:shreya3196@cluster0.9fbxa
 mongoose.connect(CONNECTION_STRING);
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.use(
   session({
     secret: "any string",
     resave: false,
-    saveUninitialized: true,
+    proxy: true,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+    },
   })
 );
 
