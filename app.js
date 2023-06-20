@@ -14,7 +14,7 @@ app.set("trust proxy", 1);
 app.use(
   cors({
     credentials: true,
-    origin: 'https://a5--fastidious-toffee-e721ad.netlify.app/', 
+    origin: 'https://a5--fastidious-toffee-e721ad.netlify.app', 
   })
 );
 
